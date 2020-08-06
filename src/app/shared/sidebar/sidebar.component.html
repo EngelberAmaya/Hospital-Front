@@ -16,31 +16,49 @@
                         <li><a routerLinkActive="active" routerLink="./perfil">My Profile </a></li>
                         <li><a href="javascript:void()">My Balance</a></li>
                         <li><a href="javascript:void()">Inbox</a></li>
-                        <li><a routerLink="account-settings">Account Setting</a></li>
+                        <li><a routerLinkActive="active" routerLink="/account-settings">Account Setting</a></li>
                         <li><a routerLink="/login">Logout</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
 
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a href="#" class="has-arrow waves-effect waves-dark" aria-expanded="false">
+                        <i [class]="menu.icono"></i>
+                            <span class="hide-menu">
+                                {{menu.titulo}}
+                                <span class="label label-rouded label-themecolor pull-right">
+                                    {{menu.submenu.length}}
+                                </span>
+                            </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let submenu of menu.submenu">
+                            <a routerLinkActive="active" [routerLink]="[submenu.url]">{{submenu.titulo}}</a>
+                        </li>
+                        <!--<li><a href="#">Analytical</a></li>
+                        <li><a href="#">Demographical</a></li>
+                        <li><a href="#">Modern</a></li>-->
+                    </ul>    
+                    
+                    <!--<a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i [class]=""></i>
                         <span class="hide-menu"> 
                             titulo 
                             <span class="label label-rouded label-themecolor pull-right">
-                                <!--{{ item.submenu.length }}-->
+                                <{{ item.submenu.length }}
                             </span>
                         </span>
                     </a>
 
                     <ul aria-expanded="false" class="collapse">
-                        <!--<li *ngFor="let subMenuItem of item.submenu">
+                        <li *ngFor="let subMenuItem of item.submenu">
                             <a [routerLink]="subMenuItem.url"
                                routerLinkActive="active"
                                [routerLinkActiveOptions]="{ exact: true }"> {{ subMenuItem.titulo }} </a>
-                        </li>-->
-                    </ul>
+                        </li>
+                    </ul>-->
                 </li>
                 
             </ul>
