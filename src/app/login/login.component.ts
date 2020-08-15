@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
                 .subscribe( resp => {
                     console.log(resp);
                     this.router.navigate(['/dashboard']);
-                    //swal('Bienvenido al sistema', '', 'success');
+                    //swal('Bienvenido al sistema', '', 'success');   
                 },
                 (err) => {
                   // Si sucede un error

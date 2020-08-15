@@ -17,6 +17,7 @@ import {APP_ROUTES} from './app.routes';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { ImagenPipe } from './pipes/imagen.pipe';
 
 
 @NgModule({
