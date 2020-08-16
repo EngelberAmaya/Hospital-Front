@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   //public perfilForm: FormGroup;
   public usuario: Usuario;
   imagenSubir: File;
-  imagenTemp: string;
+  imagenTemp: any;
 
   constructor(private _usuarioService: UsuarioService) { 
   	this.usuario = _usuarioService.usuario;
@@ -58,6 +58,5 @@ export class ProfileComponent implements OnInit {
   cambiarImagen(){
     this._usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
-
 
 }

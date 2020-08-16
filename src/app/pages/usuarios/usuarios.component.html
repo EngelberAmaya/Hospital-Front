@@ -1,0 +1,94 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar usuario..."
+                        (keyup)="buscarUsuario(txtTermino.value)"
+                        #txtTermino/>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-sm-12">
+        
+        <div class="alert alert-warning text-center">
+          <strong>Cargando</strong>
+          <br>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <br>
+          <p class="">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+
+
+<div class="row animated fadeIn fast" *ngIf="!cargando">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
+				<h3 class="card-title">Usuarios registrados (<small>{{totalRegistros}}</small>)</h3>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="text-center">Imagen</th>
+							<th class="text-center">Correo</th>
+							<th class="text-center">Nombre</th>
+							<th class="text-center">Role</th>
+							<!--<th>Auth</th>-->
+							<th class="text-center">Opciones</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr *ngFor="let usuario of usuarios">
+							<th class="w70">
+								<img (click)="mostarModal(usuario._id)" [src]="usuario.img | imagen" class="img-50 img-circle pointer">
+							</th>
+							<th class="text-center">{{usuario.email}}</th>
+							<th class="text-center">{{usuario.nombre}}</th>
+							<!--<th class="text-center">{{usuario.role}}</th>-->
+							<th>
+								<select class="form-control" [(ngModel)]="usuario.role">
+									<option value="ADMIN_ROLE">ADMIN_ROLE</option>
+									<option value="USER_ROLE">USER_ROLE</option>
+								</select>
+							</th>
+							<!--<th>
+								<label class="label label-danger">Google</label>
+								<label class="label label-primary">Normal</label>
+							</th>-->
+							<th class="text-center">
+								<button class="btn btn-primary" (click)="modRoleUsuario(usuario)">
+									<i class="fa fa-save"></i>
+								</button>
+								
+								<button (click)="borrarUsuario(usuario)" style="margin-left: 5px" class="btn btn-danger">
+									<i class="fa fa-trash-o"></i>
+								</button>
+
+							</th>
+						</tr>
+					</tbody>	
+
+				</table>
+
+				<div class="btn btn-success" (click)="cambiarDesde(-5)">
+					Anteriores
+				</div>
+				
+				<div class="btn btn-success" (click)="cambiarDesde(5)" style="margin-left: 5px">
+					Siguientes
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
