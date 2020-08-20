@@ -24,7 +24,7 @@ export class UsuarioService {
   }
 
   estaLogeado(){
-    return (this.token) ? true : false;
+    return (this.usuario) ? true : false;
   }
 
   logOut(){

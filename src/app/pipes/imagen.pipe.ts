@@ -8,20 +8,7 @@ import { URL_SERVICIOS } from '../config/config';
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
-  	/*
-  	let url = URL_SERVICIOS;
-
-  	  if ( !img ) {
-	      return `${ url }/upload/usuarios/no-image`;
-	  } else if ( img.includes('https') ) {
-	      return img;
-	  } else if ( img ) {
-	      return `${ url }/upload/${ tipo }/${ img }`;
-	  } else {
-	      return `${ url }/upload/usuarios/no-image`;
-	  }*/
-
-
+  	
   	
   	let url = URL_SERVICIOS + '/img';
 

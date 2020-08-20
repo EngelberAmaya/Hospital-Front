@@ -1,7 +1,3 @@
-import { URL_SERVICIOS } from '../config/config';
-
-let url = URL_SERVICIOS;
-
 export class Usuario {
 
 	 constructor(
@@ -15,17 +11,4 @@ export class Usuario {
         public _id?: string
     ) {}
 
-     /*
-    get imagenUrl() {
-
-        if ( !this.img ) {
-            return `${ url }/upload/usuarios/no-image`;
-        } else if ( this.img.includes('https') ) {
-            return this.img;
-        } else if ( this.img ) {
-            return `${ url }/upload/usuarios/${ this.img }`;
-        } else {
-            return `${ url }/upload/usuarios/no-image`;
-        }
-    }*/
 }
