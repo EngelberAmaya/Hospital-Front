@@ -72,7 +72,12 @@ export class RegisterComponent implements OnInit {
 
 
   	this._usuarioService.crearUsuario( usuario )
-  			.subscribe(resp => this.router.navigate(['/login']));
+  			.subscribe(resp => {
+          this.router.navigate(['/login'])          
+        },(err) => {
+                  // Si sucede un error
+             swal('Error', 'Este correo ya esta registrado', 'error');
+        });
   	
   }
 

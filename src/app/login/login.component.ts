@@ -43,12 +43,12 @@ export class LoginComponent implements OnInit {
                 .subscribe( resp => {
                     console.log(resp);
                     this.router.navigate(['/dashboard']);
-                    //window.location.href = '#/dashboard'
+                   
                     swal('Bienvenido al sistema', usuario.email, 'success');   
                 },
                 (err) => {
                   // Si sucede un error
-                 swal('Error', 'Credenciales incorrectas', 'warning');
+                 swal('Error', 'Credenciales incorrectas', 'error');
                 });
 
   }
