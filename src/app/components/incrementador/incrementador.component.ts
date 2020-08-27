@@ -21,7 +21,7 @@ export class IncrementadorComponent implements OnInit {
 
   ngOnInit(): void {
       //console.log('leyenda', this.leyenda);
-      console.log('progreso', this.progreso);
+      //console.log('progreso', this.progreso);
   }
 
   

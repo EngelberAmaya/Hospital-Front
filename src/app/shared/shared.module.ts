@@ -5,6 +5,8 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+
 //Pipe Module
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -13,13 +15,15 @@ import { PipesModule } from '../pipes/pipes.module';
   	HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    NopagefoundComponent
+    NopagefoundComponent,
+    ModalUploadComponent
   ],
   exports: [
   	HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    NopagefoundComponent
+    NopagefoundComponent,
+    ModalUploadComponent
   ],
   imports: [
     CommonModule,

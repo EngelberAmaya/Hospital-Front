@@ -49,7 +49,7 @@ export class UsuariosComponent implements OnInit {
   cambiarDesde(valor: number){
 
   	let desde = this.desde + valor;
-  	console.log(desde)
+  	//console.log(desde)
 
   	if (desde >= this.totalRegistros) {
   		return;
@@ -106,7 +106,7 @@ export class UsuariosComponent implements OnInit {
     	if (borrar) {
     		this._usuarioService.borrarUsuario(usuario._id)
     				.subscribe( borrado => {
-    					console.log(borrado);
+    					//console.log(borrado);
     					this.cargarUsuarios();
     					//this._usuarioService.cargarUsuarios(0).subscribe();
   							

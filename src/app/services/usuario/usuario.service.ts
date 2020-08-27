@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 //import 'rxjs/add/operator/map';
 import { tap, map, catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 import swal from 'sweetalert';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service'
 
@@ -22,6 +23,25 @@ export class UsuarioService {
   constructor(public http: HttpClient, public router: Router,
               public _subirArchivoService: SubirArchivoService) { 
     this.cargarStorage();
+  }
+
+  renuevaToken(){
+
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+
+    return this.http.get(url)
+                .pipe(
+                    map( (resp: any) => {
+                      this.token = resp.token;
+                      localStorage.setItem('token', this.token );
+                      console.log('Token renovado');
+                      return true;
+
+                    })                
+                    
+                 )
+
   }
 
   estaLogeado(){
@@ -81,7 +101,7 @@ export class UsuarioService {
               map( (resp: any) => {
                
                 this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);
-                console.log(resp);
+                //console.log(resp);
                 return true;
 
               })

@@ -45,7 +45,7 @@ export class HospitalesComponent implements OnInit {
   cambiarDesde(valor: number){
 
   	let desde = this.desde + valor;
-  	console.log(desde)
+  	//console.log(desde)
 
   	if (desde >= this.totalRegistros) {
   		return;
@@ -94,7 +94,7 @@ export class HospitalesComponent implements OnInit {
     	if (borrar) {
     		this._hospitalService.borrarHospital(hospital._id)
     				.subscribe( borrado => {
-    					console.log(borrado);
+    					//console.log(borrado);
     					this.cargarHospitales();
     					//this._usuarioService.cargarUsuarios(0).subscribe();
   							

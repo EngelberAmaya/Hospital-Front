@@ -38,7 +38,7 @@ export class ModalUploadComponent implements OnInit {
             swal('Excelente','Imagen subida exitosamente', 'success');
   				})
   				.catch( err => {
-  					console.log('Error en la carga...');
+  					swal('Error','No se pudo subir la imagen', 'error');
   				});
   }
 
